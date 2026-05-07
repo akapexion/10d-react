@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Home = ({employmentDetails}) => {
   return (
     <>
-      <div>Home Page</div>
+      <div className='bg-red-600 text-white'>Home Page</div>
 
       <h1>{ employmentDetails.name }</h1>
       <h1>{ employmentDetails.emp_id }</h1>
