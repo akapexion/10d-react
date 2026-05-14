@@ -1,7 +1,12 @@
-import React from 'react'
+import { Menu } from 'lucide-react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 
 const Navbar = () => {
+
+  const [toggle, setToggle] = useState(false);
+
+
   return (
     <>
       <div className="navbar bg-slate-900 text-white flex justify-between p-4">
@@ -10,15 +15,22 @@ const Navbar = () => {
         </div>
 
         <div id='items'>
-          <ul className='flex gap-10'>
+          <ul className='md:flex hidden gap-10'>
             <li><Link to="/">Home</Link></li>
             <li><Link to="/products">Products</Link></li>
           </ul>
         </div>
 
-        <div id='btn'>
-          <button>Signin</button>
+        <div className='md:hidden block' id='btn'>
+          <button onClick={() => setToggle(!toggle)}>
+              <Menu />
+          </button>
         </div>
+      </div>
+
+      <div id='mobile-navbar' className={`text-center bg-slate-900 text-white ${toggle ? "block" : "hidden"}`}>
+          <p> <Link to="/">Home</Link> </p>
+          <p> <Link to="/products">Products</Link>  </p>
       </div>
     </>
   )
