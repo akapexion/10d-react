@@ -1,24 +1,35 @@
 import axios from 'axios';
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 
 const APIIntegration = () => {
 
-    const fetchAllProducts = async() => {
+    const [data, setData] = useState([]);
+
+    const fetchProductsAPIData = async() => {
         try{
-            const res = await axios.get("https://dummyjson.com/products");
-            console.log(res);
+            const response = await axios.get("https://dummyjson.com/products");
+            console.log(response.data.products);
+            setData(response.data.products);
         }
         catch(err){
             console.log(err);
         }
     }
 
-    fetchAllProducts();
-
+    useEffect(() => {
+        fetchProductsAPIData();
+    }, [])
 
   return (
     <>
+        <div>
+            {data.map( (p) => (
+            <div>
+                {p.title}
+            </div>
+            ) )}
 
+        </div>
     </>
   )
 }
