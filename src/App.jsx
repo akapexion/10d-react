@@ -6,6 +6,7 @@ import Navbar from './components/Navbar'
 import Footer from './components/Footer'
 import Counter from './hooks/Counter'
 import Toggle from './hooks/Toggle'
+import SideEffects from './hooks/SideEffects'
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
                 <Route path="/products" element={<Products/>}/>
                 <Route path="/counter" element={<Counter/>}/>
                 <Route path="/toggle" element={<Toggle/>}/>
+                <Route path="/sideeffects" element={<SideEffects/>}/>
             </Routes>
 
             <Footer/>
